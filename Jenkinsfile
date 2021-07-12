@@ -1,9 +1,9 @@
-try{
+
 pipeline {
     
     stage('Configure'){
       steps {
-      
+    echo "Hello world"  
 
       }
     }
@@ -14,7 +14,4 @@ pipeline {
 
 
 
-    }}catch(Exception e){
-    }finally{
-    
     }
