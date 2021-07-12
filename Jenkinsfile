@@ -1,17 +1,9 @@
-
 pipeline {
-    
-    stage('Configure'){
-      steps {
-    echo "Hello world"  
-
-      }
+    stages {
+        stage('Maven Build') {
+            steps {
+                sh "mvn test"
+            }
+        }
     }
-    
-    stage('Maven build') {
-      
-    }
-
-
-
-    }
+}
