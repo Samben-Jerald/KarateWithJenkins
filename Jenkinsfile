@@ -1,9 +1,14 @@
 pipeline {
+agent any
     stages {
         stage('Maven Build') {
             steps {
-                sh "mvn test"
+                echo 'Maven Build'
             }
+            stage("Configrue"){
+                echo 'Configure'
+            }
+
         }
     }
 }
