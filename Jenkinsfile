@@ -1,15 +1,16 @@
-node("windows"){
-    stage("Git Checkout"){
-        git 'https://github.com/samben01/KarateWithJenkins'
+pipeline{
+    agent any
+    tools{
+        maven:"Maven"
+    }
+    stages{
+        stage("Git checkout"){
+        steps{
+            git 'https://github.com/samben01/KarateWithJenkins'
+        }
         }
         stage("maven build"){
-            
-            mvnBuild{
-                windowsBuild=true
-                mavenGoals="clean test"
-            }
-
+            mavenGoals="clean test"         
         }
-
-
+    }
 }
