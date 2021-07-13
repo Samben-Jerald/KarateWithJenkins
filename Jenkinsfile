@@ -5,10 +5,14 @@ agent any
             steps {
                 echo 'Maven Build'
             }
-            stage("Configrue"){
+            }
+            stage('Configrue'){
+            steps{
+
                 echo 'Configure'
+           }
             }
 
         }
     }
-}
+
