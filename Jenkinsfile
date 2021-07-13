@@ -1,20 +1,15 @@
-pipeline {
-agent any
-    stages {
-        stage('Maven Build') {
-            steps {
-          git 'https://github.com/samben01/KarateWithJenkins'
-          def mavenHome = tool name: 'Maven', type: 'maven'
-          sh "${mavenHome}/bin/mvn test"
-            }
-            }
-            stage('Configrue'){
-            steps{
-
-                echo 'Configure'
-           }
+node("windows"){
+    stage("Git Checkout"){
+        git 'https://github.com/samben01/KarateWithJenkins'
+        }
+        stage("maven build"){
+            
+            mvnBuild{
+                windowsBuild=true
+                mavenGoals="clean test"
             }
 
         }
-    }
 
+
+}
