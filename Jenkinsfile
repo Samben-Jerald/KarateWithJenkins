@@ -3,7 +3,9 @@ agent any
     stages {
         stage('Maven Build') {
             steps {
-                echo 'Maven Build'
+          git 'https://github.com/samben01/KarateWithJenkins'
+          def mavenHome = tool name: 'Maven', type: 'maven'
+          sh "${mavenHome}/bin/mvn test"
             }
             }
             stage('Configrue'){
